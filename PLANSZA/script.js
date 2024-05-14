@@ -1,7 +1,7 @@
 //tutaj dane te będą pobierane z session storage-u
-var wysokosc=15;
-var szerokosc=15;
-var iloscmin=30;
+var wysokosc=18;
+var szerokosc=18;
+var iloscmin=180;
 
 //wypisuje dane w lewym górnym rogu
 document.getElementById("datawys").innerHTML=wysokosc;
@@ -31,7 +31,7 @@ polewymiaryszer=Math.round(100/szerokosc);
 
 //wyświetlam pola na planszy
 $(".wiersz").css({"height": polewymiarywys-2+"%"});
-$(".pole").css({"background-color": "white", "border": "1px solid black","margin":"1%","height":"98%","width": polewymiaryszer-2+"%"});
+$(".pole").css({"background-color": "rgb(122,23,114)", "border": "1px solid black","margin":"1%","height":"98%","width": polewymiaryszer-2+"%"});
 
 //definiuje zmienne potrzebne do losowania pozycji min
 var miny=[];
@@ -51,5 +51,5 @@ while(minydowylosowania>0){
 
 //wyświetlam miny na planszy
 for(i=0;i<iloscmin;i++){
-    $("#w"+miny[i].wiersz+"p"+miny[i].pole).css({"background-color":"red"});
+    $("#w"+miny[i].wiersz+"p"+miny[i].pole).css({"background-color":"white"});
 }
