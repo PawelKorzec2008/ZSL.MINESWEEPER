@@ -1,0 +1,27 @@
+*{
+ MARGIN:0%;   
+}
+#data{
+    top: 0px;
+    left: 0px;
+    height: 10vh;
+    width: 20vw;
+    position: absolute;
+}
+#plansza{
+    height: 90vh;
+    width: 90vh;
+    position: absolute;
+    top:5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+.wiersz{
+    display: flex;
+    justify-content: space-around;
+}
