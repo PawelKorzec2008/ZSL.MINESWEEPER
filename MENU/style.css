@@ -1,0 +1,49 @@
+*{
+    margin:0px;
+    display: flex;
+    flex-direction: column;
+}
+
+#title{
+    font-size:xx-large;
+    text-align: center;
+    color: white;
+    margin-top: 2vh;
+}
+
+#btns{
+    display: flex;
+    margin-top: 8vh;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    font-size: x-large;
+}
+
+.btn{
+    height: 20vh;
+    width: 30vh;
+    background-color: rgb(122,23,114);
+    color: white;
+    line-height: 20vh;
+}
+
+a:link {
+    text-decoration: none;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+  
+a:hover {
+    text-decoration: none;
+}
+  
+a:active {
+    text-decoration: none;
+}
+
+body{
+    background-color: plum;
+}

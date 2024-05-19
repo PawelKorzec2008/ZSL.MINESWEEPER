@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../MENU/style.css">
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div id="title">
+            USTAWIENIA
+        </div>
+        <div id="btns">
+            <div id="9x9" onclick="fsize(9)" class="btn btnsize" style="background-color: rgb(122,23,114);">
+                9x9
+            </div>
+            <div id="12x12" onclick="fsize(12)" class="btn btnsize" style="background-color: rgb(122,23,114);">
+                12x12
+            </div>
+            <div id="15x15" onclick="fsize(15)" class="btn btnsize" style="background-color: rgb(122,23,114);">
+                15x15
+            </div>
+            <div id="18x18" onclick="fsize(18)" class="btn btnsize" style="background-color: rgb(122,23,114);">
+                18x18
+            </div>
+        </div>
+        <div id="btns">
+            <div id="easy" onclick="fdiff(10)" class="btn btndiff" style="background-color: rgb(122,23,114);">
+                Łatwy
+            </div>
+            <div id="normal" onclick="fdiff(20)" class="btn btndiff" style="background-color: rgb(122,23,114);">
+                Normalny
+            </div>
+            <div id="hard" onclick="fdiff(30)" class="btn btndiff" style="background-color: rgb(122,23,114);">
+                Trudny
+            </div>
+            <div id="impossible" onclick="fdiff(40)" class="btn btndiff" style="background-color: rgb(122,23,114);">
+                Niemożliwy
+            </div>
+        </div>
+        <div id="btns">
+            <a href="../MENU/index.html">
+                <div id="back" class="btn">
+                    Powrót
+                </div>
+            </a>
+            <div id="save" onclick="save()" class="btn">
+                Zapisz
+            </div>
+        </div>
+        <script src="scriptsettings.js"></script>
+    </body>
+</html>

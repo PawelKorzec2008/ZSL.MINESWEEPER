@@ -1,7 +1,8 @@
-//tutaj dane te będą pobierane z session storage-u
-var wysokosc=18;
-var szerokosc=18;
-var iloscmin=180;
+//dane sa pobierane z session storage-u
+var wysokosc=sessionStorage.getItem("size");
+var szerokosc=sessionStorage.getItem("size");
+var mnoznik =sessionStorage.getItem("diff")/100;
+var iloscmin=Math.round((wysokosc*szerokosc)*mnoznik);
 
 //wypisuje dane w lewym górnym rogu
 document.getElementById("datawys").innerHTML=wysokosc;
