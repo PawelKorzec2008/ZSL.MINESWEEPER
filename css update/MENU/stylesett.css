@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    background-color: plum;
+}
+.wybor{
+    position: absolute;
+    top: 25vh;
+    left: 20vw;
+    width: 60vw;
+    height: 60vh;
+    justify-content: center;
+    justify-items: center;
+}
+.numer{
+    font-size: 3.6vw;
+}
+.row{
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+    display: flex;
+}
+.Piz{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 90vh;
+    width: 98vw;
+    height: 10vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+.guzik{
+    text-align: center;
+    line-height: 8vh;
+    width: 12vw;
+    height: 8vh;
+    border: 0.2vw solid black;
+    border-radius: 1vw;
+    background-color: rgb(122, 23, 114);
+    transition-duration: 0.4s;
+    color: white;
+    font-size: 1.8vw;
+    margin:0.5vw;
+}
+.click{
+    transition-duration: 0;
+}
+.guzik:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.click:active{
+    background-color: rgb(192, 23, 94);
+}
+.box:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#title{
+    font-size:4vw;
+    text-align: center;
+    color: white;
+    margin-top: 3vh;
+}
