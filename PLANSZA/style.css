@@ -1,0 +1,97 @@
+*{
+ MARGIN:0%;   
+}
+#data{
+    top: 0px;
+    left: 0px;
+    height: 10vh;
+    width: 20vw;
+    position: absolute;
+}
+#plansza{
+    height: 90vh;
+    width: 90vh;
+    position: absolute;
+    top:5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#dzia{
+    position: absolute;
+    top: 12vh;
+    left: 75vw;
+    width: 20vw;
+    height: 20vw;
+    background-color: red;
+    border-radius: 0.5vw;
+    border: 0.3vw solid black; 
+    padding: 0.5vw;   
+}
+.napis{
+    width: 15vw;
+    height: 3vw;
+    margin-left: 2vw;
+    background-color: white;
+    padding: 0.2vw;
+    border: 0.2vw solid black;
+    font-size: 2vw;
+    text-align: center;
+    line-height: 3vw;
+}
+.quest{
+    border: 0.15vw solid black;
+    background-color: yellow;
+    font-size: 1.2vw;
+    text-align: center;
+    line-height: 1.8vw;
+    padding: 0.1vw;
+    width: 10vw;
+    height: 2vw;
+    margin-left: 4.5vw;
+    margin-top: 0.5vw;
+}
+#odp{
+    font-size: 1.1vw;
+    width: 4vw;
+    height: 1.2vw;
+    margin-top: 0.5vw;
+    margin-left: 7vw;
+}
+.submit{
+    height: 5vw;
+    width: 5vw;
+    border: 0.1 vw gray solid;
+    background-color: rgb(3, 248, 3);
+    border-radius: 50%;
+    margin-left: 7vw;
+    margin-top: 6vw;
+}
+.timers{
+    position:absolute;
+    left: 5vw;
+    top: 12vh;
+    width: 20vw;
+    height: 20vw;
+    background-color: wheat;
+}
+.licznik{
+    font-size: 3vw;
+    font-family: monospace;
+    margin: 1vw;
+    background-color: white;
+    border: 0.2vw solid black;
+    width: 18vw;
+    height: 5vw;
+    text-align: center;
+    line-height: 4.5vw;
+}
+body{
+    display: flex;
+    justify-content: center;
+    background-color: plum;
+}
+.wiersz{
+    display: flex;
+    justify-content: space-around;
+}
