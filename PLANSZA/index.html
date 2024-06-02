@@ -8,12 +8,26 @@
 
     <body>
         <div id="data">
-            <p>Ilość Min: <b id="dataminy">25</b></p>
+            <!--<p>Ilość Min: <b id="dataminy">25</b></p>-->
             <p>Wysokosc: <b id="datawys">40</b></p>
             <p>Szerokość: <b id="dataszer">40</b></p>
         </div>
         <div id="plansza">
 
+        </div>
+        <div class="timers">
+            <div class="licznik" id="t1">00:00</div>
+            <div style="display: flex; justify-content: space-around;">
+                <div class="licznik" id="t2" style="width: 8vw;"></div>
+                <div class="licznik" id="t3" style="width: 8vw;"></div>
+            </div>
+        </div>
+        <div class="dzialania" id="dzia">
+            <div class="napis">ROZBRAJACZ</div>
+            <div class="quest" >Tu bedzie dzialanie</div>
+            <input type="text" id="odp" value="" placeholder="Odp">
+        </br>
+            <button class="submit" onclick="conf()" >Submit</button>
         </div>
         <script src="script.js"></script>
     </body>
