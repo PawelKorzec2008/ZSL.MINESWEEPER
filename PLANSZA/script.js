@@ -5,9 +5,9 @@ var mnoznik=Number(sessionStorage.getItem("diff")/100);
 var iloscmin=Number(Math.round((wysokosc*szerokosc)*mnoznik));
 
 //wypisuje dane w lewym górnym rogu
-document.getElementById("datawys").innerHTML=wysokosc;
+//document.getElementById("datawys").innerHTML=wysokosc;
 //document.getElementById("dataminy").innerHTML=iloscmin;
-document.getElementById("dataszer").innerHTML=szerokosc;
+//document.getElementById("dataszer").innerHTML=szerokosc;
 $("#t2").html(iloscmin)
 $("#t3").html(wysokosc*szerokosc-iloscmin)
 
@@ -36,7 +36,7 @@ polewymiaryszer=Math.round(100/szerokosc);
 
 //wyświetlam pola na planszy
 $(".wiersz").css({"height": polewymiarywys-2+"%"});
-$(".pole").css({"background-color": "rgb(122,23,114)", "border": "1px solid black","margin":"1%","height":"98%","width": polewymiaryszer-2+"%","text-align":"center"});
+$(".pole").css({"background-color": "rgb(216, 216, 216)", "border": "1px solid black","margin":"1%","height":"98%","width": polewymiaryszer-2+"%","text-align":"center","font-size":(polewymiaryszer*32)+"%","font-family": "monospace","vertical-align":"baseline"});
 
 //definiuje zmienne potrzebne do losowania pozycji min
 var miny=[];
@@ -145,6 +145,32 @@ function sprawdzpoladookola(wierszoryginalnegopola,poleoryginalnegopola,indexory
 
 function odkryjpole(wierszdoodkrycia,poledoodkrycia,minydookolaodkrywanegopola){
     $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).html(minydookolaodkrywanegopola);
+    switch(minydookolaodkrywanegopola){
+        case 0:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","blue")
+        break;
+        case 1:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","red")
+        break;
+        case 2:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","yellow")
+        break;
+        case 3:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","green")
+        break;
+        case 4:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","darkblue")
+        break;
+        case 5:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","crimson")
+        break;
+        case 6:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","white")
+        break;
+        default:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","black")
+        break;
+    }
 }
 
 // losowanie numerow , znakow i odpowiedzi

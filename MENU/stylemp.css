@@ -52,7 +52,7 @@ body{
 }
 
 #settings{
-    line-height: 7.5vh;
+    line-height: 14vh;
 }
 .click:active{
     background-color: rgb(192, 23, 94);
