@@ -12,18 +12,20 @@
     height: 90vh;
     width: 90vh;
     position: absolute;
+    background-color: rgb(189, 181, 181); 
+    border: black 0.4vh solid;
     top:5vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 #dzia{
     position: absolute;
-    top: 12vh;
-    left: 75vw;
-    width: 20vw;
-    height: 20vw;
-    background-color: red;
+    top: 31.2vh;
+    left: 78vw;
+    width: 18vw;
+    height: 15vw;
+    background-color: rgb(53, 50, 50);
     border-radius: 0.5vw;
     border: 0.3vw solid black; 
     padding: 0.5vw;   
@@ -31,8 +33,9 @@
 .napis{
     width: 15vw;
     height: 3vw;
-    margin-left: 2vw;
-    background-color: white;
+    margin-left: 1vw;
+    background-color: rgb(0, 37, 94);
+    color: white;
     padding: 0.2vw;
     border: 0.2vw solid black;
     font-size: 2vw;
@@ -41,14 +44,15 @@
 }
 .quest{
     border: 0.15vw solid black;
-    background-color: yellow;
+    background-color: rgb(0, 37, 94);
+    color: white;
     font-size: 1.2vw;
     text-align: center;
     line-height: 1.8vw;
     padding: 0.1vw;
     width: 10vw;
     height: 2vw;
-    margin-left: 4.5vw;
+    margin-left: 4vw;
     margin-top: 0.5vw;
 }
 #odp{
@@ -62,18 +66,20 @@
     height: 5vw;
     width: 5vw;
     border: 0.1 vw gray solid;
+    font-size: 2.2em;
     background-color: rgb(3, 248, 3);
     border-radius: 50%;
-    margin-left: 7vw;
-    margin-top: 6vw;
+    margin-left: 6.5vw;
+    margin-top: 1vw;
 }
 .timers{
     position:absolute;
-    left: 5vw;
-    top: 12vh;
+    left: 2vw;
+    top: 5vh;
     width: 20vw;
-    height: 20vw;
-    background-color: wheat;
+    height: 18vw;
+    background-color: rgb(98, 136, 218);
+    border: black 0.3vw solid;
 }
 .licznik{
     font-size: 3vw;
@@ -89,9 +95,26 @@
 body{
     display: flex;
     justify-content: center;
-    background-color: plum;
+    background-color: rgb(43, 136, 179);
 }
 .wiersz{
     display: flex;
     justify-content: space-around;
+}
+.licznik{
+    width: 8vw;
+}
+#t1{
+    width: 18vw;
+}
+.mini{
+    width: 5vw;
+    margin-left: 0;
+    color: black;
+    background-color: transparent;
+    justify-content: stretch;
+    border: 0;
+    padding: 0;
+    font-size: 3vw;
+    
 }
