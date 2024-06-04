@@ -1,6 +1,6 @@
 //dane sa pobierane z session storage-u
-var wysokosc=Number(sessionStorage.getItem("size"));
-var szerokosc=Number(sessionStorage.getItem("size"));
+var wysokosc=Number(sessionStorage.getItem("sizeh"));
+var szerokosc=Number(sessionStorage.getItem("sizew"));
 var mnoznik=Number(sessionStorage.getItem("diff")/100);
 var iloscmin=Number(Math.round((wysokosc*szerokosc)*mnoznik));
 
