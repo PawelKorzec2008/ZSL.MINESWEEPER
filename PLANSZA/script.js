@@ -12,7 +12,7 @@ $("#t2").html(iloscmin)
 $("#t3").html(wysokosc*szerokosc-iloscmin)
 
 
-//definiuje zmienne dla utworzenia planszy
+//definiuje zmienne potrzebne dla utworzenia planszy
 const plansza = document.getElementById("plansza");
 var sprawdzonepola=[];
 var topaste=" ";
@@ -21,7 +21,7 @@ var topaste=" ";
 for(i=1;i<=wysokosc;i++){
     topaste+="<div class='wiersz' id='w"+i+"'>";
     for(j=1;j<=szerokosc;j++){
-        topaste+="<div class='pole' id='w"+i+"p"+j+"' onclick = 'wys(w"+i+"p"+j+","+i+","+j+")'></div>";
+        topaste+="<div class='pole' id='w"+i+"p"+j+"' onclick = 'wys(w"+i+"p"+j+","+i+","+j+")' oncontextmenu='oflaguj("+i+","+j+")'></div>";
     }
     topaste+="</div>"
 }
@@ -30,7 +30,7 @@ for(i=1;i<=wysokosc;i++){
 plansza.innerHTML+=topaste;
 
 
-//wyliczam wymiary dla pól na planszy
+//wyliczam rozmiar pól na planszy
 polewymiarywys=Math.round(100/wysokosc);
 polewymiaryszer=Math.round(100/szerokosc);
 
@@ -63,11 +63,11 @@ for(i=0;i<iloscmin;i++){
 }
 */
 
-//miny.some(miny => miny.wiersz == wierszwybranegopola)&&miny.some(miny => miny.pole == polewybranegopola)
 //sprwadz pole jest wywolywane kiedy juz wiemy ze pole nie jest bombą
 function sprawdzpole(wierszwybranegopola,polewybranegopola,indexwybranegopola){
     //console.log("sprawdzam pole o indexie "+indexwybranegopola);
     var minydookolawybranegopola=0;
+    //jeżeli pole nie było już sprawdzane, liczymy ile pól dookoła są minami
     if(sprawdzonepola.includes(Number(indexwybranegopola))==false){
             if(miny.includes(Number(indexwybranegopola-szerokosc-1))!=false&&wierszwybranegopola-1>0&&polewybranegopola-1>0){
                 minydookolawybranegopola++;
@@ -101,13 +101,16 @@ function sprawdzpole(wierszwybranegopola,polewybranegopola,indexwybranegopola){
                 minydookolawybranegopola++;
                 //console.log("mina w checku 8"+Number(indexwybranegopola+szerokosc+1));
             }
+        //po zliczeniu min, dodaję numer pola do listy sprawdzonych pól, odświeżam licznik i wyświetlam numer min na polu
         sprawdzonepola.push(Number((wierszwybranegopola-1)*szerokosc+polewybranegopola));
         $("#t3").html(wysokosc*szerokosc-iloscmin-sprawdzonepola.length)
         //console.log("sprawdzono pole o indexie "+indexwybranegopola+" znaleziono "+minydookolawybranegopola+" min");
         odkryjpole(wierszwybranegopola,polewybranegopola,minydookolawybranegopola);
+        //jeżeli dookoła nie ma min, pola dookoła też są sprawdzane
         if(minydookolawybranegopola==0){
             sprawdzpoladookola(wierszwybranegopola,polewybranegopola,indexwybranegopola);
         }
+        //jeżeli nie ma nieodkrytych pól które nie są minami, gra się kończy
         if(wysokosc*szerokosc-iloscmin-sprawdzonepola.length==0){
             koniecgry();
         }
@@ -116,7 +119,9 @@ function sprawdzpole(wierszwybranegopola,polewybranegopola,indexwybranegopola){
     }
 }
 
+//funkcja sprawdza pola dookoła wybranego pola
 function sprawdzpoladookola(wierszoryginalnegopola,poleoryginalnegopola,indexoryginalnegopola){
+    //jeżeli pole jest miną, poza planszą lub było już sprawdzane, nie będzie ono sprawdzane
     if(miny.includes(indexoryginalnegopola-szerokosc-1)==false&&wierszoryginalnegopola-1>0&&poleoryginalnegopola-1>0&&sprawdzonepola.includes(indexoryginalnegopola-szerokosc-1)==false&&indexoryginalnegopola-szerokosc-1>0){
         sprawdzpole(wierszoryginalnegopola-1,poleoryginalnegopola-1,Number(indexoryginalnegopola-szerokosc-1));
     }
@@ -143,6 +148,7 @@ function sprawdzpoladookola(wierszoryginalnegopola,poleoryginalnegopola,indexory
     }
 }
 
+//funkcja wypisuje ilość min dookoła na polu
 function odkryjpole(wierszdoodkrycia,poledoodkrycia,minydookolaodkrywanegopola){
     $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).html(minydookolaodkrywanegopola);
 }
@@ -193,6 +199,13 @@ function wys(id,w,p){
         losnum();
         timeout();
         naduszoneminy.push("w"+w+"p"+p);
+        if(naduszoneminy.length>1){
+            if(confirm("Przegrywasz")){
+                window.location.href = '../MENU/index.html';    
+            }else{
+                window.location.href = '../MENU/index.html'; 
+            }
+        }
     }else if(odkryteminy.includes("w"+w+"p"+p)==false){sprawdzpole(w,p,(w-1)*szerokosc+p)};
 }
 // Funkcja sprawdzająca prawidziwosc odpowiedzi
@@ -270,6 +283,85 @@ $(document).ready(function () {
       },1000)
 });
 
+//funkcja kończąca grę kiedy nie ma żadnych nieodkrytych min lub bezpiecznych pól, wysyła gracza na stronę z gratulacjami
 function koniecgry(){
     window.location.href = 'KONIEC.html'; 
+}
+
+//symbol flagi do zaznaczania min zmienia się w zależności od miesiąca
+var symbolflagi;
+const datetime = new Date();
+switch(datetime.getMonth()+1){
+    case 1:
+        //w styczniu jest to kawałek ciasta ponieważ Łukasz ma w styczniu urodziny
+        symbolflagi="🍰";
+        break;
+    case 2:
+        //w lutym jest to serce z okazji walentynek
+        symbolflagi="❤";
+        break;
+    case 3:
+        //w marcu jest to ciasto ponieważ Paweł ma w styczniu urodziny. Warto zauważyć że Paweł dostaje całe ciasto a Łukasz tylko kawałek. To dlatego, że urodziny Pawła są ważniejsze.
+        symbolflagi="🎂";
+        break;
+    case 4:
+        //w kwietniu jest to klaun z okazji prima aprilis
+        symbolflagi="🤡";
+        break;
+    case 5:
+        //w maju jest to polska flaga z okazji rocznicy podpisania konstytucji
+        symbolflagi="🇵🇱";
+        break;
+    case 6:
+        //w czerwcu jest to tęczowa flaga z okazji miesiąca równości
+        symbolflagi="🏳‍🌈";
+        break;
+    case 7:
+        //w lipcu jest to słońce z uwagi na słoneczną lipcową pogodę
+        symbolflagi="☀";
+        break;
+    case 8:
+        //w sierpniu jest to strzałka w lewo z okazji międzynarodowego dnia osób leworęcznych
+        symbolflagi="⬅";
+        break;
+    case 9:
+        //we wrześniu jest to szkoła z okazji rozpoczęcia roku szkolnego
+        symbolflagi="🏫";
+        break;
+    case 10:
+        //we październiku jest to dynia z okazji halloween
+        symbolflagi="🎃";
+        break;
+    case 11:
+        //we listopadzie jest to orzch z uwagi na NNN (pomysł Łukasza)
+        symbolflagi="🌰";
+        break;
+    case 12:
+        //w grudniu jest to choinka z okazji świąt Bożego narodzenia
+        symbolflagi="🎄";
+        break;
+    default:
+        //domyślnie jest to czerwona flaga
+        symbolflagi="🚩";
+}
+
+//kod który sprawia że prawy przycisk nie otwiera menu
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
+
+//funkcja i zmienne odpowiedzialne za flagowanie pól
+var polaoflagowane=[];
+var indexdoflagowania;
+function oflaguj(wierszdoflagowania,poledoflagowania){
+    indexdoflagowania = (wierszdoflagowania-1)*szerokosc+poledoflagowania
+    //jeżeli pole jest sprawdzone, nie można go flagować
+    if(polaoflagowane.includes(indexdoflagowania)==false&&sprawdzonepola.includes(indexdoflagowania)==false){
+        document.getElementById("w"+wierszdoflagowania+"p"+poledoflagowania).innerHTML+=symbolflagi;
+        polaoflagowane.push(indexdoflagowania)
+    }else if(sprawdzonepola.includes(indexdoflagowania)==false){
+        //flagowanie już oflagowanego pola zdejmuje z niego flagę
+        document.getElementById("w"+wierszdoflagowania+"p"+poledoflagowania).innerHTML="";
+        polaoflagowane.splice(jQuery.inArray(indexdoflagowania,polaoflagowane),1);
+    }
 }
