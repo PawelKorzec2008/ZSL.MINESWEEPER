@@ -6,8 +6,8 @@ var looseSFX = new Audio("../SFX/YouLoose.ogg");
 var flagSFX = new Audio("../SFX/Flag.ogg");
 
 //dane sa pobierane z session storage-u
-var wysokosc = Number(sessionStorage.getItem("size"));
-var szerokosc = Number(sessionStorage.getItem("size"));
+var wysokosc = Number(sessionStorage.getItem("sizeh"));
+var szerokosc = Number(sessionStorage.getItem("sizew"));
 var mnoznik = Number(sessionStorage.getItem("diff") / 100);
 var iloscmin = Number(Math.round((wysokosc * szerokosc) * mnoznik));
 //wypisuje dane obok planszy
@@ -422,8 +422,8 @@ switch (datetime.getMonth() + 1) {
         symbolflagi = "🎃";
         break;
     case 11:
-        //we listopadzie jest to orzch z uwagi na NNN (pomysł Łukasza)
-        symbolflagi = "🌰";
+        //we listopadzie jest to parasol z uwagi na jesienną pogodę
+        symbolflagi = "☔";
         break;
     case 12:
         //w grudniu jest to choinka z okazji świąt Bożego narodzenia

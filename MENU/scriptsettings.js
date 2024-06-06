@@ -15,50 +15,50 @@ if(sessionStorage.getItem("altered")!=1){
 //ustawiamy odpowiednie guziki na kolor niebieski
 switch(Number(diff)){
     case 10:
-        console.log(diff);
+        //console.log(diff);
         $("#easy").css({"background-color":"rgb(58, 96, 178)"});
         break;
     case 20:
-        console.log(diff);
+        //console.log(diff);
         $("#normal").css({"background-color":"rgb(58, 96, 178)"});
         break;
     case 30:
-        console.log(diff);
+        //console.log(diff);
         $("#hard").css({"background-color":"rgb(58, 96, 178)"});
         break;
     case 40:
-        console.log(diff);
+        //console.log(diff);
         $("#impossible").css({"background-color":"rgb(58, 96, 178)"});
         break;
     default:
-        console.log(diff);
+        //console.log(diff);
         $("#wlasnydiff").css({"background-color":"rgb(58, 96, 178)"});
 }
 
 switch(sizeh+"|"+sizew){
     case ("9|9"):
-        console.log(sizeh);
-        console.log(sizew);
+        //console.log(sizeh);
+        //console.log(sizew);
         $("#9x9").css({"background-color":"rgb(58, 96, 178)"});
         break;
     case ("12|12"):
-        console.log(sizeh);
-        console.log(sizew);
+        //console.log(sizeh);
+        //console.log(sizew);
         $("#12x12").css({"background-color":"rgb(58, 96, 178)"});
         break;
     case ("15|15"):
-        console.log(sizeh);
-        console.log(sizew);
+        //console.log(sizeh);
+        //console.log(sizew);
         $("#15x15").css({"background-color":"rgb(58, 96, 178)"});
         break;
     case ("18|18"):
-        console.log(sizeh);
-        console.log(sizew);
+        //console.log(sizeh);
+        //console.log(sizew);
         $("#18x18").css({"background-color":"rgb(58, 96, 178)"});
         break;
     default:
-        console.log(sizeh);
-        console.log(sizew);
+        //console.log(sizeh);
+        //console.log(sizew);
         $("#wlasnysize").css({"background-color":"rgb(58, 96, 178)"});
 }
 

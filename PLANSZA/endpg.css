@@ -1,11 +1,11 @@
 * {
     MARGIN: 0;
     padding: 0;
+    color: white;
 }
 
 body {
-    background-color: plum;
-
+    background-color: rgb(43, 136, 179);
 }
 
 .grat {
@@ -15,11 +15,11 @@ body {
     height: 10vh;
     font-size: 5.3em;
     text-align: center;
-    color: black;
+    color: white
 }
 
 .lilh {
-    background-color: rgb(0, 77, 192);
+    background-color: rgb(98, 136, 218);
     border-radius: 5%;
     position: absolute;
     width: 25vw;
@@ -45,7 +45,7 @@ body {
 }
 
 .b1 {
-    background-color: rgb(0, 37, 94);
+    background-color: rgb(98, 136, 218);
     border-radius: 5%;
     width: 20vw;
     height: 30vh;
@@ -103,13 +103,17 @@ body {
     border-radius: 5%;
     width: 15vw;
     height: 10vh;
-    background-color: rgb(0, 77, 192);
+    background-color: rgb(98, 136, 218);
     border: 0.3vw solid black;
     text-align: center;
     font-size: 3.5em;
     vertical-align: baseline;
     line-height: 10vh;
     transition: 0.3s;
+}
+
+.back:active{
+    background-color: rgb(118, 156, 238);
 }
 
 d {

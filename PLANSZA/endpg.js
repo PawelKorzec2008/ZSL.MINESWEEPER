@@ -1,29 +1,32 @@
-var wysokosc = Number(sessionStorage.getItem("size"));
-var szerokosc = wysokosc;
+//definiuje SFX
+var audio = new Audio("../SFX/SpaceTapped.ogg");
+
+var wysokosc = Number(sessionStorage.getItem("sizeh"));
+var szerokosc = Number(sessionStorage.getItem("sizew"));
 var diff = Number(sessionStorage.getItem("diff"));
 var difstr;
 var minystr = sessionStorage.getItem('naduszoneminy');
 var miny = JSON.parse(minystr);
 var sekundy = Number(sessionStorage.getItem("sekundy"));
 var minuty = Number(sessionStorage.getItem("minuty"));
-console.log(sekundy)
-console.log(minuty);
+//console.log(sekundy)
+//console.log(minuty);
 // zamiana liczbowego poziomu trudonosci na napis
 switch (diff) {
     case 10:
-        diffstr = "Łatwym"
+        diffstr = "Łatwym";
         break;
     case 20:
-        diffstr = "Normalnym"
+        diffstr = "Normalnym";
         break;
     case 30:
-        diffstr = "Trudnym"
+        diffstr = "Trudnym";
         break;
     case 40:
-        diffstr = "Niemożliwym"
+        diffstr = "Niemożliwym";
         break;
     default:
-        diffstr = "Własnym"
+        diffstr = "Własnym";
         break;
 
 }
@@ -52,15 +55,21 @@ function convertTime(s, m) {
     }
     return czas;
 }
-console.log()
+
 $(document).ready(function () {
 
-    $(".lilh").html("Udało&nbsp;ci&nbsp;się&nbsp;ukończyć&nbsp;grę w&nbsp;POLE&nbsp;MINOWE na&nbsp;poziomie " + "<d>" + diffstr + "</d>");
+    $(".lilh").html("Udało&nbsp;ci&nbsp;się&nbsp;ukończyć&nbsp;grę w&nbsp;POLE&nbsp;MINOWE na&nbsp;poziomie " + "<d><b>" + diffstr + "</b></d>");
     $("#miny").html(miny.length);
     $("#czas").html(convertTime(sekundy, minuty));
     $("#rozmiar").html(wysokosc + "x" + szerokosc);
 
 });
+
 function back() {
-    location.href = "../MENU/index.html"
+    audio.play();
+    setTimeout(backSoud,200)
+}
+
+function backSoud() {
+    location.href = "../MENU/index.html";
 }
