@@ -250,6 +250,10 @@ function conf() {
         $("#odp").val(" ")
         $(".quest").html("...")
         clearTimeout(time);
+        clearInterval(timer2);
+        s2 = 0;
+        m2 = 10;
+        $(".tensec").html("10:00")
         $("#" + naduszoneminy[0]).css({ "background-color": "white" });
         odkryteminy.push(naduszoneminy[0]);
         $("#t2").html(iloscmin - odkryteminy.length);
@@ -270,6 +274,7 @@ function conf() {
 // ustawianie czasu na rozbrojenie
 function timeout() {
     time = setTimeout(Lose, 10000)
+    tenseconds();
     // console.log("time on")
 
 }
@@ -315,7 +320,37 @@ $(document).ready(function () {
         }
     }, 1000)
 });
-
+// funkcja zajmująca się odliczaniem do wybuchu bomby (brak implementacji)
+var s2 = 0;
+var m2 = 10;
+var timer2;
+function tenseconds() {
+    timer2 = setInterval(function () {
+        if (m2 <= 9) {
+            if (s2 <= 9) {
+                $(".tensec").html("0" + m2 + ":" + "0" + s2)
+            }
+            else {
+                $(".tensec").html("0" + m2 + ":" + s2)
+            }
+        }
+        else {
+            if (s2 <= 9) {
+                $(".tensec").html(m2 + ":" + "0" + s2)
+            }
+            else {
+                $(".tensec").html(m2 + ":" + s2)
+            }
+        }
+        if (s2 == 0) {
+            m2--;
+            s2 = 59;
+        }
+        else {
+            s2--;
+        }
+    }, 10)
+}
 //funkcja kończąca grę kiedy nie ma żadnych nieodkrytych min lub bezpiecznych pól, wysyła gracza na stronę z gratulacjami
 function koniecgry() {
     const jsonArray = JSON.stringify(odkryteminy);
