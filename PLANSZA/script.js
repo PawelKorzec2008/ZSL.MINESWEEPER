@@ -1,10 +1,17 @@
+//Definiuje SFX
+var poleSFX = new Audio("../SFX/SpaceTapped.ogg");
+var minaSFX = new Audio("../SFX/MineTapped.ogg");
+var odpSFX = new Audio("../SFX/AnwserSubmitted.ogg");
+var looseSFX = new Audio("../SFX/YouLoose.ogg");
+var flagSFX = new Audio("../SFX/Flag.ogg");
+
 //dane sa pobierane z session storage-u
 var wysokosc=Number(sessionStorage.getItem("sizeh"));
 var szerokosc=Number(sessionStorage.getItem("sizew"));
 var mnoznik=Number(sessionStorage.getItem("diff")/100);
 var iloscmin=Number(Math.round((wysokosc*szerokosc)*mnoznik));
 
-//wypisuje dane w lewym górnym rogu
+//wypisuje dane obok planszy
 //document.getElementById("datawys").innerHTML=wysokosc;
 //document.getElementById("dataminy").innerHTML=iloscmin;
 //document.getElementById("dataszer").innerHTML=szerokosc;
@@ -28,7 +35,6 @@ for(i=1;i<=wysokosc;i++){
 
 //wypisanie planszy
 plansza.innerHTML+=topaste;
-
 
 //wyliczam rozmiar pól na planszy
 polewymiarywys=Math.round(100/wysokosc);
@@ -56,19 +62,20 @@ while(minydowylosowania>0){
     }
 }
 
-//wyświetlam miny na planszy
+//wyświetlam miny na planszy (używane podczas testów)
 /*
 for(i=0;i<iloscmin;i++){
     $("#w"+miny2[i].wiersz+"p"+miny2[i].pole).css({"background-color":"white"});
 }
 */
 
-//sprwadz pole jest wywolywane kiedy juz wiemy ze pole nie jest bombą
+//sprwadzpole jest wywolywane kiedy juz wiemy ze pole nie jest bombą
 function sprawdzpole(wierszwybranegopola,polewybranegopola,indexwybranegopola){
     //console.log("sprawdzam pole o indexie "+indexwybranegopola);
     var minydookolawybranegopola=0;
     //jeżeli pole nie było już sprawdzane, liczymy ile pól dookoła są minami
     if(sprawdzonepola.includes(Number(indexwybranegopola))==false){
+        poleSFX.play();
             if(miny.includes(Number(indexwybranegopola-szerokosc-1))!=false&&wierszwybranegopola-1>0&&polewybranegopola-1>0){
                 minydookolawybranegopola++;
                 //console.log("mina w checku 1: "+Number(indexwybranegopola-szerokosc-1));
@@ -153,16 +160,16 @@ function odkryjpole(wierszdoodkrycia,poledoodkrycia,minydookolaodkrywanegopola){
     $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).html(minydookolaodkrywanegopola);
     switch(minydookolaodkrywanegopola){
         case 0:
-        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","blue")
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","white")
         break;
         case 1:
-        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","red")
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","blue")
         break;
         case 2:
-        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","yellow")
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","green")
         break;
         case 3:
-        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","green")
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","red")
         break;
         case 4:
         $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","darkblue")
@@ -171,10 +178,13 @@ function odkryjpole(wierszdoodkrycia,poledoodkrycia,minydookolaodkrywanegopola){
         $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","crimson")
         break;
         case 6:
-        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","white")
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","teal")
         break;
-        default:
-        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","black")
+        case 7:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","teal")
+        break;
+        case 8:
+        $("#w"+wierszdoodkrycia+"p"+poledoodkrycia).css("color","gray")
         break;
     }
 }
@@ -222,6 +232,7 @@ function wys(id,w,p){
     //console.log(w,p)
     if(miny.includes((w-1)*szerokosc+p)==true&&odkryteminy.includes("w"+w+"p"+p)==false){
         //console.log("hit")
+        minaSFX.play();
         losnum();
         timeout();
         naduszoneminy.push("w"+w+"p"+p);
@@ -240,6 +251,7 @@ function conf(){
     // dobra odp
     if(value==odp){
         //console.log("fin")
+        odpSFX.play();
         $("#odp").val(" ")
         $(".quest").html("...")
         clearTimeout(time);
@@ -253,6 +265,7 @@ function conf(){
     }
     //zla odp
     else if(value!=odp){
+        looseSFX.play();
         if(confirm("Przegrywasz")){
             window.location.href = '../MENU/index.html';    
         }else{
@@ -268,6 +281,7 @@ function timeout(){
 }
 // funkcja wywolywana gdy konczy sie czas na rozbrojenie
 function Lose(){
+    looseSFX.play();
     console.log("time off");
     if(confirm("Rozbrojenie bomby zajeło zbyt długo czasu. Przegrywasz")){
         window.location.href = '../MENU/index.html';    
@@ -383,10 +397,12 @@ function oflaguj(wierszdoflagowania,poledoflagowania){
     indexdoflagowania = (wierszdoflagowania-1)*szerokosc+poledoflagowania
     //jeżeli pole jest sprawdzone, nie można go flagować
     if(polaoflagowane.includes(indexdoflagowania)==false&&sprawdzonepola.includes(indexdoflagowania)==false){
+        flagSFX.play();
         document.getElementById("w"+wierszdoflagowania+"p"+poledoflagowania).innerHTML+=symbolflagi;
         polaoflagowane.push(indexdoflagowania)
     }else if(sprawdzonepola.includes(indexdoflagowania)==false){
         //flagowanie już oflagowanego pola zdejmuje z niego flagę
+        flagSFX.play();
         document.getElementById("w"+wierszdoflagowania+"p"+poledoflagowania).innerHTML="";
         polaoflagowane.splice(jQuery.inArray(indexdoflagowania,polaoflagowane),1);
     }

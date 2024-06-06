@@ -4,7 +4,7 @@
     border: 0;
 }
 body{
-    background-color: plum;
+    background-color: rgb(43, 136, 179);
 }
 .interface{
     position: absolute;
@@ -27,7 +27,7 @@ body{
 .name{
     width:60vw;
     height: 20vh;
-    color: black;
+    color: white;
     justify-content: center;
     justify-items: center;
     font-size: 5vw;
@@ -44,7 +44,7 @@ body{
     border: 0.2vw solid black;
     border-radius: 1vw;
     line-height: 14vh;
-    background-color: rgb(122, 23, 114);
+    background-color: rgb(98, 136, 218);
     font-size: 2.5vw;
     color:white;
     text-align: center ;
@@ -55,7 +55,7 @@ body{
     line-height: 14vh;
 }
 .click:active{
-    background-color: rgb(192, 23, 94);
+    background-color: rgb(118, 156, 238);
 }
 .guzik:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
