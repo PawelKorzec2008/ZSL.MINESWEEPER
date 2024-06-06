@@ -273,7 +273,7 @@ function conf() {
 }
 // ustawianie czasu na rozbrojenie
 function timeout() {
-    time = setTimeout(Lose, 10000)
+    time = setTimeout(Lose, 10020)
     tenseconds();
     // console.log("time on")
 
@@ -326,6 +326,7 @@ var m2 = 10;
 var timer2;
 function tenseconds() {
     timer2 = setInterval(function () {
+
         if (m2 <= 9) {
             if (s2 <= 9) {
                 $(".tensec").html("0" + m2 + ":" + "0" + s2)
@@ -344,7 +345,7 @@ function tenseconds() {
         }
         if (s2 == 0) {
             m2--;
-            s2 = 59;
+            s2 = 99;
         }
         else {
             s2--;
