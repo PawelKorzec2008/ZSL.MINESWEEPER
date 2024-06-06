@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="../MENU/stylemp.css">
-        <meta charset="utf-8">
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    
-    </head>
 
-    <body>
-        <div class="title"> <!-- Tytuł gry -->
-            <div class="name" id="name">POLE MINOWE</div>
+<head>
+    <link rel="stylesheet" href="../MENU/stylemp.css">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="title"> <!-- Tytuł gry -->
+        <div class="name" id="name">POLE MINOWE</div>
+    </div>
+    <div class="interface">
+        <div id="settings" class="guzik click" onclick="Ustawienia()">
+            Ustawienia
         </div>
-        <div class="interface">
-            <div id="settings" class="guzik click" onclick="Ustawienia()">
-                Ustawienia Gry
-            </div>
-            <div id="newgame" class="guzik click" onclick="startgame()">
-                Nowa Gra
-            </div>     
-            <div id="end" class="guzik click">
-                Zakończ <!--Nie działa-->
-            </div>
+        <div id="newgame" class="guzik click" onclick="startgame()">
+            Nowa Gra
         </div>
-        <script src="scriptindex.js"></script>
-    </body>
+        <div id="end" class="guzik click">
+            Zakończ <!--Nie działa-->
+        </div>
+    </div>
+    <script src="scriptindex.js"></script>
+</body>
+
 </html>
