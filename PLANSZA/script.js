@@ -263,6 +263,7 @@ function conf(){
 // ustawianie czasu na rozbrojenie
 function timeout(){
      time = setTimeout(Lose,10000)
+
     // console.log("time on")
 
 }
@@ -308,7 +309,37 @@ $(document).ready(function () {
     }
       },1000)
 });
-
+// funkcja zajmująca się odliczaniem do wybuchu bomby (brak implementacji)
+var s2 = 0;
+var m2 = 10;
+var timer2;
+function tenseconds(){
+    timer2 = setInterval(function () {
+        if(m2<=9){
+            if(s2<=9){
+                $(".tensec").html("0"+m2+":"+"0"+s2)
+            }
+            else{
+                $(".tensec").html("0"+m2+":"+s2)
+            }
+        }
+        else{
+            if(s2<=9){
+                $(".tensec").html(m2+":"+"0"+s2)
+            }
+            else{
+                $(".tensec").html(m2+":"+s2)
+            }
+        }
+        if(s1==0){
+            m2 --;
+            s2 = 59;
+        }
+        else{
+        s1--;
+    }
+      },1000)
+}
 //funkcja kończąca grę kiedy nie ma żadnych nieodkrytych min lub bezpiecznych pól, wysyła gracza na stronę z gratulacjami
 function koniecgry(){
     window.location.href = 'KONIEC.html'; 
@@ -340,7 +371,7 @@ switch(datetime.getMonth()+1){
         break;
     case 6:
         //w czerwcu jest to tęczowa flaga z okazji miesiąca równości
-        symbolflagi="🏳‍🌈";
+        symbolflagi="🏳️‍🌈";
         break;
     case 7:
         //w lipcu jest to słońce z uwagi na słoneczną lipcową pogodę
@@ -359,8 +390,8 @@ switch(datetime.getMonth()+1){
         symbolflagi="🎃";
         break;
     case 11:
-        //we listopadzie jest to orzch z uwagi na NNN (pomysł Łukasza)
-        symbolflagi="🌰";
+        //we listopadzie jest to lisc klonu z uwagi na wszechobecna jesien
+        symbolflagi="🍁";
         break;
     case 12:
         //w grudniu jest to choinka z okazji świąt Bożego narodzenia
