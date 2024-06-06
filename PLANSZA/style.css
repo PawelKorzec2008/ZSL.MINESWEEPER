@@ -1,36 +1,40 @@
-*{
- MARGIN:0%;   
+* {
+    MARGIN: 0%;
 }
-#data{
+
+#data {
     top: 0px;
     left: 0px;
     height: 10vh;
     width: 20vw;
     position: absolute;
 }
-#plansza{
+
+#plansza {
     height: 90vh;
     width: 90vh;
     position: absolute;
-    background-color: rgb(189, 181, 181); 
+    background-color: rgb(189, 181, 181);
     border: black 0.4vh solid;
-    top:5vh;
+    top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-#dzia{
+
+#dzia {
     position: absolute;
     top: 31.2vh;
     left: 78vw;
     width: 18vw;
-    height: 15vw;
+    height: 19vw;
     background-color: rgb(53, 50, 50);
     border-radius: 0.5vw;
-    border: 0.3vw solid black; 
-    padding: 0.5vw;   
+    border: 0.3vw solid black;
+    padding: 0.5vw;
 }
-.napis{
+
+.napis {
     width: 15vw;
     height: 3vw;
     margin-left: 1vw;
@@ -42,7 +46,8 @@
     text-align: center;
     line-height: 3vw;
 }
-.quest{
+
+.quest {
     border: 0.15vw solid black;
     background-color: rgb(0, 37, 94);
     color: white;
@@ -55,14 +60,16 @@
     margin-left: 4vw;
     margin-top: 0.5vw;
 }
-#odp{
+
+#odp {
     font-size: 1.1vw;
     width: 4vw;
     height: 1.2vw;
     margin-top: 0.5vw;
     margin-left: 7vw;
 }
-.submit{
+
+.submit {
     height: 5vw;
     width: 5vw;
     border: 0.1 vw gray solid;
@@ -72,8 +79,9 @@
     margin-left: 6.5vw;
     margin-top: 1vw;
 }
-.timers{
-    position:absolute;
+
+.timers {
+    position: absolute;
     left: 2vw;
     top: 5vh;
     width: 20vw;
@@ -81,7 +89,21 @@
     background-color: rgb(98, 136, 218);
     border: black 0.3vw solid;
 }
-.licznik{
+
+.tensec {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-left: 4vw;
+    width: 10vw;
+    border: 0.2vw solid black;
+    background-color: rgb(0, 37, 94);
+    color: white;
+    font-size: 3em;
+    height: 3vw;
+    vertical-align: baseline;
+}
+
+.licznik {
     font-size: 3vw;
     font-family: monospace;
     margin: 1vw;
@@ -92,22 +114,27 @@
     text-align: center;
     line-height: 4.5vw;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     background-color: rgb(43, 136, 179);
 }
-.wiersz{
+
+.wiersz {
     display: flex;
     justify-content: space-around;
 }
-.licznik{
+
+.licznik {
     width: 8vw;
 }
-#t1{
+
+#t1 {
     width: 18vw;
 }
-.mini{
+
+.mini {
     width: 5vw;
     margin-left: 0;
     color: black;
@@ -116,5 +143,5 @@ body{
     border: 0;
     padding: 0;
     font-size: 3vw;
-    
+
 }
