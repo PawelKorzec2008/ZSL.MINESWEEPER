@@ -236,7 +236,7 @@ var naduszoneminy = [];
 var time;
 var odkryteminy = [];
 // on click na polach
-function wys(id, w, p) {
+function wys(w, p) {
     // trafiono na mine
     //console.log(w,p)
     if (miny.includes((w - 1) * szerokosc + p) == true && odkryteminy.includes("w" + w + "p" + p) == false) {
