@@ -8,12 +8,12 @@ function startgame(){
 }
 //funkcja sprawdza czy ustawienia były zmieniane. Jeżeli nie, ustawia domyślne
 function startgameSound(){
-    location.href = "../PLANSZA/index.html"
     if(sessionStorage.getItem("altered")!=1){
         sessionStorage.setItem("diff", 10);
         sessionStorage.setItem("sizeh", 9);
         sessionStorage.setItem("sizew", 9);
     }
+    location.href = "../PLANSZA/index.html";
 }
 
 function Ustawienia(){
