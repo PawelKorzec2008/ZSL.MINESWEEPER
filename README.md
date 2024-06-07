@@ -3,4 +3,6 @@ AUTORSTWA:
 -PAWEŁ KORZEC
 -ŁUKASZ CEGIELSKI
 
-PROSZĘ ROZPOCZĄĆ GRĘ PLIKIEM MENU/index.html
+PROSZĘ rozpocząć grę plikiem MENU/index.html
+
+Polskie znaki w dokumentacji są w innej czcionce. Jest to wina google docs, nie nasza.
