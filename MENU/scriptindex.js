@@ -11,7 +11,8 @@ function startgameSound(){
     location.href = "../PLANSZA/index.html"
     if(sessionStorage.getItem("altered")!=1){
         sessionStorage.setItem("diff", 10);
-        sessionStorage.setItem("size", 9);
+        sessionStorage.setItem("sizeh", 9);
+        sessionStorage.setItem("sizew", 9);
     }
 }
 
